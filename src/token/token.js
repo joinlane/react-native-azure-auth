@@ -1,4 +1,4 @@
-import { Base64 } from 'js-base64'
+import { Base64 } from '../lib/base64'
 import log from '../utils/logger'
 
 function base64DecodeStringUrlSafe(base64IdToken) {
