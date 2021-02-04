@@ -1,5 +1,6 @@
 import { extractIdToken } from './token'
 import { Base64 } from 'js-base64'
+import { decode } from '../lib/base64'
 import Scope from './scope'
 
 const TOKEN_CACHE_KEY_DELIMITER = '$'
@@ -83,7 +84,7 @@ export default class BaseTokenItem {
     static scopeFromKey(key) {
         const keyParts = key.split(TOKEN_CACHE_KEY_DELIMITER)
         if (keyParts[2]) {
-            const scopeStr = Base64.decode(keyParts[2])
+            const scopeStr = decode(keyParts[2])
             return new Scope(scopeStr)
         }
         return null
